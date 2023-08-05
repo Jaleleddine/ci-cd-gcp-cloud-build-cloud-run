@@ -28,7 +28,6 @@ steps:
     -
         name: gcr.io/cloud-builders/gcloud
         args:
-            - beta
             - run
             - deploy
             - crud-op-$BRANCH_NAME

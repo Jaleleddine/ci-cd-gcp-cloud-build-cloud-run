@@ -29,7 +29,7 @@ steps:
         name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
         entrypoint: gcloud
         args:
-        [
+            [
         "run",
         "deploy",
         "crud-op",
@@ -42,7 +42,7 @@ steps:
         "--image",
         "gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest",
         "--allow-unauthenticated",
-        ]
+            ]
 images:
 
     - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA'

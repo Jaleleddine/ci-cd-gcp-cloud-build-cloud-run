@@ -26,18 +26,23 @@ steps:
             - push 
             - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest'
     -
-        name: gcr.io/cloud-builders/gcloud
+        name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+        entrypoint: gcloud
         args:
-            - run
-            - deploy
-            - crud-op-$BRANCH_NAME
-            - '--image'
-            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest'
-            - '--region'
-            - europe-west1
-            - '--platform'
-            - managed
-            - '--allow-unauthenticated'
+        [
+        "run",
+        "deploy",
+        "crud-op",
+        "--project",
+        "$PROJECT_ID",
+        "--platform",
+        "managed",
+        "--region",
+        "europe-west1",
+        "--image",
+        "gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest",
+        "--allow-unauthenticated",
+        ]
 images:
 
     - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA'
@@ -45,3 +50,8 @@ images:
     
 options:
     logging: CLOUD_LOGGING_ONLY
+
+
+
+      
+      

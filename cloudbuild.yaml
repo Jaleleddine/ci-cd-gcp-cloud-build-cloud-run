@@ -41,6 +41,8 @@ steps:
         "europe-west1",
         "--image",
         "gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest",
+        "--port",
+        "3000",
         "--allow-unauthenticated",
             ]
 images:
